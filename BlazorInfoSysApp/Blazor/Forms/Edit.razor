@@ -1,0 +1,244 @@
+@page "/edit/{id:long}"
+@page "/edit"
+@inherits OwningComponentBase<DataContext>
+
+
+<MudContainer MaxWidth="MaxWidth.ExtraLarge" Class="mud-theme-info py-2">
+    <h2>Edit Person Data</h2>
+</MudContainer>
+
+<EditForm Model="PersonData" OnValidSubmit="OnValidSubmit" style="margin-bottom:200px">
+<DataAnnotationsValidator />
+<MudContainer MaxWidth="MaxWidth.ExtraExtraLarge" Class="mt-3">
+    <MudGrid>
+        <MudItem lg="12" sm="12" xs="12">
+            <MudTextField Label="Person ID" @bind-Value="PersonData.PersonId" ReadOnly="true" For="@(() => PersonData.PersonId)"/>
+        </MudItem>
+        <MudItem lg="4" sm="12" xs="12">
+            <MudTextField Label="Firstname" @bind-Value="PersonData.Firstname" Required="true" For="@(() => PersonData.Firstname)"/>
+        </MudItem>
+        <MudItem lg="4" sm="12" xs="12" >
+            <MudTextField Label="Middlename" @bind-Value="PersonData.Middlename"  For="@(() => PersonData.Middlename)"/>
+        </MudItem>
+        <MudItem lg="4" sm="12" xs="12" >
+            <MudTextField Label="Surname"  @bind-Value="PersonData.Lastname" Required="true" For="@(() => PersonData.Lastname)"/>
+        </MudItem>
+        <MudItem lg="4" sm="12" xs="12" >
+                <MudDatePicker Label="Select Birthday" @bind-Value="PersonData.Birthday" @bind-Date="PersonData.Birthday" DateFormat="MMMM d, yyyy" Required="true" Editable="false" ShowToolbar="true" Placeholder="Select Your Birthday" />
+        </MudItem>
+        <MudItem lg="4" sm="12" xs="12" >
+                <MudNumericField @bind-Value="PersonData.Age" MaxLength="3" Max="150" Label="Age" Required="true" Variant="Variant.Text" For="@(() => PersonData.Age)" />
+        </MudItem>
+        <MudItem lg="4" sm="12" xs="12" >
+            <MudSelect @bind-Value="PersonData.Gender" Label="Select Gender" Required="true" Placeholder="Please Select" For="@(() => PersonData.Gender)">
+                <MudSelectItem Value="@("Female")">Female</MudSelectItem>
+                <MudSelectItem Value="@("Male")">Male</MudSelectItem>
+            </MudSelect>
+        </MudItem>
+        <MudItem lg="4" sm="12" xs="12" >
+            <MudTextField Label="Email" @bind-Value="PersonData.Email" Required="true" For="@(() => PersonData.Email)"/>
+        </MudItem>
+        <MudItem lg="4" sm="12" xs="12" >
+                <MudTextField Label="Phone Number" @bind-Value="PersonData.PhoneNumber" Mask="@(new PatternMask("0000 000 0000"))" Placeholder="0000 000 0000" Required="true" For="@(() => PersonData.PhoneNumber)" />
+        </MudItem>
+        <MudItem lg="4" sm="12" xs="12" >
+            <MudSelect @bind-Value="PersonData.CivilStatus" Label="Civil Status" Required="true" Placeholder="Please Select" For="@(() => PersonData.CivilStatus)">
+                <MudSelectItem Value="@("Married")">Married</MudSelectItem>
+                <MudSelectItem Value="@("Single")">Single</MudSelectItem>
+                <MudSelectItem Value="@("Widowed")">Widowed</MudSelectItem>
+            </MudSelect>
+        </MudItem>
+        <MudItem lg="4" sm="12" xs="12" >
+            <MudTextField Label="Work Title" @bind-Value="PersonData.WorkTitle" Required="true" For="@(() => PersonData.WorkTitle)"/>
+        </MudItem>
+        <MudItem lg="8" sm="12" xs="12" >
+            <MudTextField Label="Address" @bind-Value="PersonData.Address" Required="true" For="@(() => PersonData.Address)"/>
+        </MudItem>
+        <MudItem lg="4" sm="12" xs="12" >
+            <MudAutocomplete Label="Region" @bind-Value="PersonData.Region" Required="true"
+             SearchFunc="@SearchRegionAsync" Immediate="false" CoerceValue="@coerceValue" ResetValueOnEmptyText="true"
+             AdornmentIcon="@Icons.Material.Filled.Search" AdornmentColor="Color.Primary"
+             For="@(() => PersonData.Region)"/>
+        </MudItem>
+        <MudItem lg="4" sm="12" xs="12" >
+            <MudAutocomplete Label="City" @bind-Value="PersonData.City" Required="true" ReadOnly="@(string.IsNullOrEmpty(PersonData.Region) ? true : false)"
+             SearchFunc="@SearchCityAsync" Immediate="false" CoerceValue="@coerceValue" ResetValueOnEmptyText="true"
+             AdornmentIcon="@Icons.Material.Filled.Search" AdornmentColor="Color.Primary"
+             For="@(() => PersonData.City)" />
+        </MudItem>
+        <MudItem lg="4" sm="12" xs="12" >
+            <MudAutocomplete Label="Barangay" @bind-Value="PersonData.Barangay" Required="true" ReadOnly="@(string.IsNullOrEmpty(PersonData.City) ? true : false)"
+             SearchFunc="@SearchBarangayAsync" Immediate="false" CoerceValue="@coerceValue" ResetValueOnEmptyText="true"
+             AdornmentIcon="@Icons.Material.Filled.Search" AdornmentColor="Color.Primary" ShowProgressIndicator="true"
+             For="@(() => PersonData.Barangay)" HelperText="Enter Brgy. Number or Unique Name (ex. 176 or Baesa)"/>
+        </MudItem>
+        <MudItem lg="4" sm="12" xs="12" >
+            <MudAutocomplete Label="Province" @bind-Value="PersonData.Province" Required="true"
+             SearchFunc="@SearchProvinceAsync" Immediate="false" CoerceValue="@coerceValue" ResetValueOnEmptyText="true"
+             AdornmentIcon="@Icons.Material.Filled.Search" AdornmentColor="Color.Primary"
+             For="@(() => PersonData.Province)"/>
+        </MudItem>
+        <MudItem lg="4" sm="12" xs="12">
+            <MudTextField Label="ZIP CODE" @bind-Value="PersonData.ZIP" Required="true" For="@(() => PersonData.ZIP)"/>
+        </MudItem>
+        <MudItem Class="d-flex flex-row align-center justify-center mud-width-full py-3 mt-3" Outlined="true">
+            <MudButton ButtonType="ButtonType.Submit" StartIcon="@Icons.Material.Filled.Save" Variant="Variant.Filled" Disabled="@(Id==0 ? true : false)" Size="Size.Large" Class="mx-1" Color="Color.Warning">Update</MudButton>
+            <MudButton Variant="Variant.Filled" StartIcon="@Icons.Material.Filled.Cancel" Color="Color.Default" Size="Size.Large" Class="mx-1"><NavLink href="/people">Cancel</NavLink></MudButton>
+        </MudItem>
+    </MudGrid>
+</MudContainer>
+</EditForm>
+
+@code {
+
+    private bool coerceValue;
+
+    private List<City>? cities;
+    private List<string>? cityNames;
+
+    private List<Barangay>? barangays;
+    private List<string>? barangayNames;
+
+    private List<Regions>? regions;
+    private List<string>? regionNames;
+
+    private List<Provinces>? provinces;
+    private List<string>? provinceNames;
+
+    [Inject]
+    public NavigationManager? NavManager { get; set; }
+
+    DataContext? Context => Service;
+
+    [Inject]
+    public IHttpClientFactory? Http { get; set; }
+
+    [Parameter]
+    public long Id { get; set;}
+
+    public Person PersonData { get; set; } = new();
+    //public City CityData {get; set; } = new();
+
+    private async Task<IEnumerable<string>> SearchCityAsync(string value, CancellationToken token) 
+    {
+        await GetCityDataAsync(token);
+
+        if(string.IsNullOrEmpty(value))
+        {
+            return cityNames;
+        }
+
+        return cityNames.Where(x => x.Contains(value, StringComparison.InvariantCultureIgnoreCase));
+    }
+
+    public async Task GetCityDataAsync(CancellationToken token) {
+        if (Http != null) {
+
+            var client = Http.CreateClient("PSGCApi");
+            cities = await client.GetFromJsonAsync<List<City>>($"regions/{PersonData.Region}/cities/");
+            cityNames = cities.Select(n => n.Name).ToList();
+        }
+    }
+
+    private async Task<IEnumerable<string>> SearchBarangayAsync(string value, CancellationToken token) 
+    {
+        await GetBarangayDataAsync(token);
+        
+
+        if(string.IsNullOrEmpty(value))
+        {
+            return barangayNames;
+        }
+
+        return barangayNames.Where(x => x.Contains(value, StringComparison.InvariantCultureIgnoreCase));
+    }
+
+    public async Task GetBarangayDataAsync(CancellationToken token) {
+        if (Http != null) {
+            
+            var client = Http.CreateClient("PSGCApi");
+            barangays = await client.GetFromJsonAsync<List<Barangay>>($"cities/{PersonData.City}/barangays/");
+            barangayNames = barangays.Select(n => n.Name).ToList();
+        }
+    }
+
+    private async Task<IEnumerable<string>> SearchRegionAsync(string value, CancellationToken token) 
+    {
+        await GetRegionDataAsync(token);
+        
+
+        if(string.IsNullOrEmpty(value))
+        {
+            return regionNames;
+        }
+
+        return regionNames.Where(x => x.Contains(value, StringComparison.InvariantCultureIgnoreCase));
+    }
+
+    public async Task GetRegionDataAsync(CancellationToken token) {
+        if (Http != null) {
+
+            var client = Http.CreateClient("PSGCApi");
+            regions = await client.GetFromJsonAsync<List<Regions>>("regions/");
+            regionNames = regions.Select(n => n.Name).ToList();
+        }
+    }
+
+    private async Task<IEnumerable<string>> SearchProvinceAsync(string value, CancellationToken token) 
+    {
+        await GetProvinceDataAsync(token);
+        
+
+        if(string.IsNullOrEmpty(value))
+        {
+            return provinceNames;
+        }
+
+        return provinceNames.Where(x => x.Contains(value, StringComparison.InvariantCultureIgnoreCase));
+    }
+
+    public async Task GetProvinceDataAsync(CancellationToken token) {
+        if (Http != null) {
+
+            var client = Http.CreateClient("PSGCApi");
+            provinces = await client.GetFromJsonAsync<List<Provinces>>("provinces/");
+            provinceNames = provinces.Select(n => n.Name).ToList();
+        }
+    }
+
+    protected async override Task OnParametersSetAsync() {
+        if(Context != null) {
+            PersonData = await Context.People.FindAsync(Id) ?? new Person();
+            Console.WriteLine(PersonData.Firstname);
+        }
+    }
+
+    public string Mode => Id == 0 ? "Create" : "Edit";
+    public string Theme => Id == 0 ? "Tertiary" : "Info";
+    public string ButtonName => Id == 0 ? "Save" : "Update";
+    
+    public async Task OnValidSubmit(EditContext context)
+    {
+        if(Context != null)
+        {
+            Context.Update(PersonData);
+        }
+        await Context.SaveChangesAsync();
+        SaveSuccessSnackbar();
+        StateHasChanged();
+        await Task.Delay(2500);
+        NavManager?.NavigateTo("/people", true);
+        
+    }
+
+    [Inject]
+    public ISnackbar Snackbar { get; set; }
+
+    public void SaveSuccessSnackbar()
+    {
+        Snackbar.Add("Saved Successfully!", Severity.Success, options => {
+            options.CloseAfterNavigation = true;
+        });
+    }
+
+}

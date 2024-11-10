@@ -1,0 +1,23 @@
+@page "/dashboard"
+
+<MudContainer MaxWidth="MaxWidth.ExtraExtraLarge" Class="mud-theme-tertiary py-2">
+    <h2>Dashboard</h2>
+</MudContainer>
+
+<MudContainer MaxWidth="MaxWidth.ExtraExtraLarge" Class="mt-3">
+    <MudGrid>
+        <MudItem xs="12" sm="12" md="4" lg="4">
+            <MudPaper Class="d-flex flex-column align-center justify-center mud-width-full py-3" Outlined="true">
+                <MudText Typo="Typo.h6" Inline="false">Total: Male / Female</MudText>
+                <MaleFemaleDonutChart />
+            </MudPaper>
+        </MudItem>
+        <MudItem sm="12" md="8" lg="8">
+            <MudPaper Class="d-flex flex-column align-center justify-center mud-width-full py-3" Outlined="true">
+                <MudText Typo="Typo.h6" Inline="false">Age Bracket Per Month of Birthday</MudText>
+                <MaleFemaleBarChartAges />
+            </MudPaper>
+        </MudItem>
+    </MudGrid>
+</MudContainer>
+

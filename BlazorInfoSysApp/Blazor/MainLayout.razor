@@ -1,0 +1,41 @@
+@inherits LayoutComponentBase
+
+@* Required *@
+<MudThemeProvider />
+<MudPopoverProvider />
+
+@* Needed for dialogs *@
+<MudDialogProvider />
+
+@* Needed for snackbars *@
+<MudSnackbarProvider />
+
+<MudLayout>
+    <MudAppBar Elevation="1" Dense="true">
+        <MudIconButton Icon="@Icons.Material.Filled.Menu" Color="Color.Inherit" Edge="Edge.Start" OnClick="@((e) => DrawerToggle())" />
+        <MudText Typo="Typo.h5" Class="ml-3">Information System with MudBlazor</MudText>
+        <MudSpacer />
+        @* <MudIconButton Icon="@Icons.Material.Filled.MoreVert" Color="Color.Inherit" Edge="Edge.End" /> *@
+    </MudAppBar>
+    <MudDrawer Class="py-3" @bind-Open="_drawerOpen" ClipMode="DrawerClipMode.Always" Elevation="2">
+        @*NavMenu*@
+        <NavMenu />
+    </MudDrawer>
+    <MudMainContent>
+        @*Body*@
+        @Body
+        <footer>
+        <h3 class="my-footer">PROSAMODI APPS&copy; 2024</h3>
+    </footer>
+    </MudMainContent>
+    
+</MudLayout>
+
+@code {
+    bool _drawerOpen = true;
+
+    void DrawerToggle()
+    {
+        _drawerOpen = !_drawerOpen;
+    }
+}

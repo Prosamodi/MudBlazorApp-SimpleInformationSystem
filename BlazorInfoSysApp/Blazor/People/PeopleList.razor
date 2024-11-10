@@ -1,0 +1,54 @@
+@page "/people"
+
+<MudContainer MaxWidth="MaxWidth.ExtraLarge" Class="mud-theme-tertiary py-2 d-flex">
+    <h2>People</h2>
+    <MudSpacer />
+    <MudButton 
+        Href="/create"
+        Variant="Variant.Filled" StartIcon="@Icons.Material.Filled.PersonAddAlt1" Size="Size.Small" Color="Color.Info" Edge="Edge.Start" class="mx-1">
+        Add New
+    </MudButton>
+    <MudButton OnClick="ExportPeopleData"
+        Variant="Variant.Filled" StartIcon="@Icons.Material.Outlined.ImportExport" Size="Size.Small" Color="Color.Secondary" Edge="Edge.Start" class="mx-1">
+        Export People
+    </MudButton>
+</MudContainer>
+
+<MudContainer MaxWidth="MaxWidth.ExtraExtraLarge" Class="mt-3">
+    <MudGrid>
+        <MudItem lg="12" sm="12">
+            <DataGrid />
+        </MudItem>
+    </MudGrid>
+</MudContainer>
+
+
+@code {
+    [Inject]
+    public DataContext? Context {get; set;}
+
+    [Inject]
+    HttpClient? Http { get; set; }
+
+    [Inject]
+    NavigationManager? Navigation { get; set; }
+
+    [Inject]
+    IJSRuntime? JS { get; set; }
+
+    private string? errorMessage;
+
+    private async Task ExportPeopleData()
+    {
+        try
+        {
+            var apiUrl = Navigation.ToAbsoluteUri("api/Export/ExportAllDataToExcel");
+
+            await JS.InvokeVoidAsync("openDownloadPage", apiUrl);
+        }
+        catch (Exception ex)
+        {
+            errorMessage = $"Error: {ex.Message}";
+        }
+    }
+}

@@ -1,0 +1,45 @@
+@page "/"
+@{ Layout = null; }
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Information System</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
+<link href="_content/MudBlazor/MudBlazor.min.css" rel="stylesheet" />
+    <base href="~/" />
+    <style>
+        .my-footer{
+            margin-top: 1.5em;
+            margin-bottom: 1.5em;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="m-2">
+        <component type="typeof(BlazorInfoSysApp.Blazor.Routed)" render-mode="Server" />
+    </div>
+    
+    <script>
+        function openDownloadPage(url){
+            const newWindow = window.open(url, '_blank');
+            if (newWindow){
+                newWindow.onload = function() {
+                    setTimeOut(() => {
+                        newWindow.close();
+                    }, 2000);
+                };
+            }
+        }
+    </script>
+
+    <script src="_framework/blazor.server.js"></script>
+    <script src="_content/MudBlazor/MudBlazor.min.js"></script>
+    
+</body>
+
+</html>

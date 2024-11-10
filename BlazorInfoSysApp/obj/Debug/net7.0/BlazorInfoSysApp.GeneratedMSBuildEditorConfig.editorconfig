@@ -1,0 +1,88 @@
+is_global = true
+build_property.MudDebugAnalyzer = 
+build_property.MudAllowedAttributePattern = 
+build_property.MudIllegalParameters = 
+build_property.TargetFramework = net7.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = BlazorInfoSysApp
+build_property.RootNamespace = BlazorInfoSysApp
+build_property.ProjectDir = C:\Users\user\Desktop\New Core Project\SimpleBlazor\BlazorInfoSysApp\
+build_property.RazorLangVersion = 7.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = C:\Users\user\Desktop\New Core Project\SimpleBlazor\BlazorInfoSysApp
+build_property._RazorSourceGeneratorDebug = 
+
+[C:/Users/user/Desktop/New Core Project/SimpleBlazor/BlazorInfoSysApp/Blazor/Dashboard/Dashboard.razor]
+build_metadata.AdditionalFiles.TargetPath = Qmxhem9yXERhc2hib2FyZFxEYXNoYm9hcmQucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/user/Desktop/New Core Project/SimpleBlazor/BlazorInfoSysApp/Blazor/Dashboard/MaleFemaleBarChartAges.razor]
+build_metadata.AdditionalFiles.TargetPath = Qmxhem9yXERhc2hib2FyZFxNYWxlRmVtYWxlQmFyQ2hhcnRBZ2VzLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/user/Desktop/New Core Project/SimpleBlazor/BlazorInfoSysApp/Blazor/Dashboard/MaleFemaleDonutChart.razor]
+build_metadata.AdditionalFiles.TargetPath = Qmxhem9yXERhc2hib2FyZFxNYWxlRmVtYWxlRG9udXRDaGFydC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/user/Desktop/New Core Project/SimpleBlazor/BlazorInfoSysApp/Blazor/Forms/Create.razor]
+build_metadata.AdditionalFiles.TargetPath = Qmxhem9yXEZvcm1zXENyZWF0ZS5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/user/Desktop/New Core Project/SimpleBlazor/BlazorInfoSysApp/Blazor/Forms/Edit.razor]
+build_metadata.AdditionalFiles.TargetPath = Qmxhem9yXEZvcm1zXEVkaXQucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/user/Desktop/New Core Project/SimpleBlazor/BlazorInfoSysApp/Blazor/MainLayout.razor]
+build_metadata.AdditionalFiles.TargetPath = Qmxhem9yXE1haW5MYXlvdXQucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/user/Desktop/New Core Project/SimpleBlazor/BlazorInfoSysApp/Blazor/NavMenu.razor]
+build_metadata.AdditionalFiles.TargetPath = Qmxhem9yXE5hdk1lbnUucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/user/Desktop/New Core Project/SimpleBlazor/BlazorInfoSysApp/Blazor/People/DataGrid.razor]
+build_metadata.AdditionalFiles.TargetPath = Qmxhem9yXFBlb3BsZVxEYXRhR3JpZC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/user/Desktop/New Core Project/SimpleBlazor/BlazorInfoSysApp/Blazor/People/PeopleList.razor]
+build_metadata.AdditionalFiles.TargetPath = Qmxhem9yXFBlb3BsZVxQZW9wbGVMaXN0LnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/user/Desktop/New Core Project/SimpleBlazor/BlazorInfoSysApp/Blazor/RedirectToDashboard.razor]
+build_metadata.AdditionalFiles.TargetPath = Qmxhem9yXFJlZGlyZWN0VG9EYXNoYm9hcmQucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/user/Desktop/New Core Project/SimpleBlazor/BlazorInfoSysApp/Blazor/Routed.razor]
+build_metadata.AdditionalFiles.TargetPath = Qmxhem9yXFJvdXRlZC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/user/Desktop/New Core Project/SimpleBlazor/BlazorInfoSysApp/_Imports.razor]
+build_metadata.AdditionalFiles.TargetPath = X0ltcG9ydHMucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/user/Desktop/New Core Project/SimpleBlazor/BlazorInfoSysApp/Pages/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXJyb3IuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/user/Desktop/New Core Project/SimpleBlazor/BlazorInfoSysApp/Pages/_Host.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX0hvc3QuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/user/Desktop/New Core Project/SimpleBlazor/BlazorInfoSysApp/Pages/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX0xheW91dC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/user/Desktop/New Core Project/SimpleBlazor/BlazorInfoSysApp/Pages/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/user/Desktop/New Core Project/SimpleBlazor/BlazorInfoSysApp/Pages/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
